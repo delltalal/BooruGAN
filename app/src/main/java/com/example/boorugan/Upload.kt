@@ -1,5 +1,7 @@
 package com.example.boorugan
 
+//Made by Talal
+
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -51,6 +53,7 @@ class Upload : AppCompatActivity() {
 
 
     fun img2img() {
+        //Initializes OkHttpClient
         val client = OkHttpClient()
 
         val MEDIA_TYPE = "application/json".toMediaType()
@@ -66,6 +69,7 @@ class Upload : AppCompatActivity() {
         val byteArray = byteArrayOutputStream.toByteArray()
         var base64String = Base64.encodeToString(byteArray, Base64.DEFAULT)
 
+        //Made by Bader
         base64String = base64String.replace("\n","")
 
 
@@ -74,6 +78,7 @@ class Upload : AppCompatActivity() {
 
         val promptText = prompt.text.toString()
 
+        //Sends a JSON file
         val requestBody = """
             {
               "init_images": [
@@ -118,6 +123,7 @@ class Upload : AppCompatActivity() {
             }
         """.trimIndent()
 
+        //Selects the Server IP and Port with the txt2img API parameter in Stable Diffusion
         val request = Request.Builder()
             .url("http://192.168.8.132:7860/sdapi/v1/img2img")
             .post(requestBody.toRequestBody(MEDIA_TYPE))
@@ -128,6 +134,7 @@ class Upload : AppCompatActivity() {
         client.newCall(request).execute().use { response ->
             if (!response.isSuccessful) throw IOException("Unexpected code $response")
 
+            //Saves the Response JSON from the server into Data folder in app
             val responseBody = response.body!!.string()
             val outputFile = File(filesDir, "response.json")
 

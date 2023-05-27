@@ -10,6 +10,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         var list:ListView= findViewById(R.id.list)
+
+        //Made by Fahad
+        //Takes you to the different intents/pages
         list.setOnItemClickListener { _, _, index, _ ->
             if (index == 0) {// if first item is clicked
                 val intent = Intent(this, Upload::class.java)
