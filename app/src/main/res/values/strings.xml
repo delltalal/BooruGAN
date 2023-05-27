@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">BooruGAN</string>
+    <string-array name="options">
+        <item><b><font color="#d3d8e3" size="30">Upload Image</font></b></item>
+        <item><b><font color="#d3d8e3" size="30">Generate New Image</font></b></item>
+
+    </string-array>
+    <string name="title_activity_upload">Upload</string>
+    <string name="error_fragment">Error Fragment</string>
+    <string name="personal_settings">Personal Settings</string>
+
+    <!-- Error messages -->
+    <string name="error_fragment_message">An error occurred</string>
+    <string name="dismiss_error">Dismiss</string>
+    <string name="title_activity_generate">Generate</string>
+</resources>
